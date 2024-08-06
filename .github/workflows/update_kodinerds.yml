@@ -1,4 +1,4 @@
-name: Update CoreELEC/LibreELEC
+name: Update kodinerds samples
 
 on:
   workflow_dispatch:
