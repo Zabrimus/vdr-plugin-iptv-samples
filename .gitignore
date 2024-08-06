@@ -1,0 +1,8 @@
+/src/convm3u/convm3u_channel
+.dependencies
+*.o
+*.so
+*~
+po/*.pot
+po/*.mo
+
