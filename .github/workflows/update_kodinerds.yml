@@ -6,7 +6,7 @@ on:
     - cron: '0 23 * * 2'
 
 jobs:
-  update_ce_le:
+  update_kodinerds:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,7 +27,6 @@ jobs:
           branch: bot-update-ce-le
           delete-branch: true
           title: '[Bot] Update kodinerds channels'
-          body-path: commit.body
           labels: |
             automated pull request
           draft: false
