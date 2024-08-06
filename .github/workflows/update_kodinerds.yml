@@ -1,0 +1,33 @@
+name: Update CoreELEC/LibreELEC
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 23 * * 2'
+
+jobs:
+  update_ce_le:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build tools
+        run: |
+          make 
+          cd src/convm3u
+          ./convert_all_kodinerds_streams.sh
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: Update CoreELEC/LibreELEC.tv
+          branch: bot-update-ce-le
+          delete-branch: true
+          title: '[Bot] Update kodinerds channels'
+          body-path: commit.body
+          labels: |
+            automated pull request
+          draft: false
