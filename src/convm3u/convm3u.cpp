@@ -145,6 +145,10 @@ void ConvM3U::createCompleteChannel(const std::vector<m3uEntry>& m3u, std::strin
             result_channel.append("|X=").append(m.tvgId);
         }
 
+        if (radio == "1") {
+            result_channel.append("|H=V");
+        }
+
         result_channel.append(":I:0:");
 
         if (radio == "1") {
